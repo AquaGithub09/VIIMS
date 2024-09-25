@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profile-information.css">
+    <link rel="stylesheet" href="index-phone-query.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+
+        
+        <div class="header">
+            <center><h1 class="headerh1">VEHICLE IMPOUNDMENT AND MANAGEMENT SYSTEM</h1></center>
+        </div>
+
+        <div class="navbar">
+            <div class="btn-container">
+            
+                    <a href="index.html">
+                    <button class="nav-btn" id="home">
+                        <p>Home</p>
+                    </button>
+                    </a>
+    
+                    <a href="data-records.html">
+                    <button class="nav-btn" id="data-record">
+                        <p>Data Records</p>
+                    </button>
+                    </a>
+    
+                    <a href="record-status.html">
+                    <button class="nav-btn" id="record-status">
+                        <p>Record Status</p>
+                    </button>
+                    </a>
+
+                <button class="nav-btn" id="city-ordinance">
+                    <p>City Ordinance</p>
+                </button>
+
+                <button class="nav-btn" id="toggleButton" onclick="menuToggled()">
+                    <p>Account</p>   
+                        
+                    <div class="dropdown" id="display">
+                            <li><a href="" id="acc-links">
+                                Edit Account
+                            </a></li><br>
+                            <li><a href="" id="acc-links">
+                                Logout
+                            </a></li>
+                    </div>
+
+                </button>
+                <button class="nav-btn" id="about">
+                    <p>About</p>
+                </button>
+
+            </div>
+        </div>
+        
+        <div class="sidebar">
+
+        </div>
+
+        <div class="main">
+            <div class="profile-info">
+                <form><!----------------------------------------FORM-->
+                    <h1 id="profile-header">PROFILE INFORMATION</h1>
+                    <input type="text" name="" value="TRESMONTE" placeholder="LAST NAME" id="profile-input">
+                    <input type="text" name="" value="PRINCES ANN" placeholder="FIRST NAME" id="profile-input">
+                    <input type="text" name="" value="R." placeholder="M.I." id="profile-input">
+                    <input type="text" name="" value="26839O28-28728" placeholder="LICENSE NO." id="profile-input"><br><br>
+
+                    <input type="number" name="" value="09123456789" placeholder="CONTACT NUMBER" id="profile-input">
+                    <input type="text" name="" value="Menlo Phase 3 Zone 10 Talisay City Negros Occidental" placeholder="ADDRESS" id="profile-address">
+                    
+                </form>
+            </div>
+
+            <div class="violation-history">
+                <h1 id="violation-header">VIOLATION HISTORY</h1>
+
+                <div class="history-container">
+                    <div class="ticket">
+                        <h1 id="ticket-header"> TICKET NUMBER</h1>
+                            <p id="violation-history-p">1234567890</p>
+                            <p id="violation-history-p">6545465321</p>
+                    </div>
+
+                    <div class="violation">
+                        <h1 id="violate-header">VIOLATION</h1>
+                            <p id="violation-history-p">DRIVING WHILE NO LISENCE</p>
+                            <p id="violation-history-p">ILLEGAL PARKING</p>
+                    </div>
+
+                    <div class="date-release">
+                        <h1 id="date-header">DATE OF RELEASE</h1>
+                            <p id="violation-history-p">OCTOBER 8, 2024</p>
+                            <p id="violation-history-p">AUGUST 8, 2023</p>
+                    </div>
+
+                    <div class="time-release">
+                        <h1 id="time-header">TIME OF RELEASE</h1>
+                            <p id="violation-history-p">4:30 PM</p>
+                            <p id="violation-history-p">11:27 AM</p>
+                    </div>
+                        
+                    <div class="status">
+                        <h1 id="status-header">STATUS</h1>
+                            <p id="violation-history-p">PAID AND RELEASED</p>
+                            <p id="violation-history-p">PAID AND RELEASED</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="rightside">
+            
+        </div>
+
+        <div class="footer">
+            
+        </div>
+
+    </div>
+    
+<script>
+
+const menuButton = document.getElementById('mobiledisplay');
+const accountButton = document.getElementById('mobileDisplayAccount');
+
+function closeOtherDropdowns(excludeElement) {
+    if (excludeElement !== menuButton) menuButton.classList.remove('showMenubtn');
+    if (excludeElement !== accountButton) accountButton.classList.remove('showAccbtn');
+}
+
+function barMenu() {
+    const isOpen = menuButton.classList.contains('showMenubtn');
+    closeOtherDropdowns(menuButton);
+    menuButton.classList.toggle('showMenubtn', !isOpen);
+}
+
+function barUser() {
+    const isOpen = accountButton.classList.contains('showAccbtn');
+    closeOtherDropdowns(accountButton);
+    accountButton.classList.toggle('showAccbtn', !isOpen);
+}
+
+menuButton.addEventListener('click', barMenu);
+accountButton.addEventListener('click', barUser);
+
+</script>
+
+</body>
+</html>

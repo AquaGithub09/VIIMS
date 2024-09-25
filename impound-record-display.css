@@ -1,0 +1,640 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('impp.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100%;
+    min-width: 100vw;
+}
+
+
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 10vw 1fr 10vw;
+    grid-template-areas: 
+       "header header header"
+       "navbar navbar navbar"
+      "sidebar main rightside"
+      "footer footer footer";
+    gap: 5px;
+}
+  
+.navbar {
+    grid-area: navbar;
+    background-color: #6b7077;
+    position: relative;
+    height: 80px;
+  }
+  
+.sidebar {
+    grid-area: sidebar;
+    height: calc(80vh - 8.34vh);
+  }
+
+.header {
+  grid-area: header;
+  height: 9vh;
+  background-color: #597BA7;
+}
+
+.main {
+    grid-area: main;
+    height: calc(80vh - 8.34vh);
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.4px);
+    -webkit-backdrop-filter: blur(12.4px);
+    border: 1px solid rgba(0, 0, 0, 0.57);
+}
+  
+.rightside {
+    grid-area: rightside;
+    height: calc(80vh - 8.34vh);
+  }
+  
+.footer {
+    position: relative;
+    grid-area: footer;
+    background-color: #597BA7;
+    height: 9vh;
+}
+/*--------------- grid inside main --------*/
+.inside-main {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "title title title title" 
+    "left left right right";
+}
+
+
+.title-bar {
+    grid-area: title;
+    height: 10vh;
+}
+
+            .header-search-bar {
+                position: relative;
+            }
+
+            #title-header-search-bar {
+                position: relative;
+                left: 20px;
+                top: 25px;
+                font-size: 2vw;
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+
+            .search-form {
+                position: relative;
+                float: right;
+                top: -20px;
+                margin-right: 100px;
+                
+            }
+
+            #ticket-search-bar {
+                width: 200px;
+                height: 40px;
+                padding-left: 100px;
+                outline: none;
+            }
+
+            #ticket-placeholder{
+                position: absolute;
+                top: 15px;
+                left: 20px;
+                font-size: 12px;
+                color: #000000;
+            }
+
+            #search-btn {
+                width: 50px;
+                height: 40px;
+            }
+
+
+            #ticket-search-bar::-webkit-inner-spin-button {
+                display: none;
+            }
+
+.left {
+    grid-area: left;
+    height: auto;
+}
+
+/*-----------------------------------------------------------VEHICLE INFORMATION--------------------------*/
+
+            .vehicle-info-container {
+                position: relative;
+                top: 20px;
+                height: 30vh;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .input-container {
+                position: relative;
+                top: 20px;
+                left: 50%;
+                translate: -50%;
+                border: 1px solid;
+                width: 90%;
+                height: 20vh;
+                border-radius: 10px;
+                padding-top: 50px;
+                /* From https://css.glass */
+                background: rgba(217, 217, 217, 0.81);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 2px solid rgb(3, 3, 3);
+                overflow: auto;
+            }
+
+
+            #vehicle-info-header {
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+
+            #input-vehicle-info {
+                padding-left: 5px;
+                margin-top: 10px;
+                width: 200px;
+                height: 40px;
+            }
+
+            #plate-number {
+                padding-left: 5px;
+                margin-top: 10px;
+                width: 200px;
+                height: 40px;
+            }
+
+            #input-vehicle-info::-webkit-inner-spin-button{
+                display: none;
+            }
+
+/*------------------------------------------------------ EDIT ICONS ------------------------*/
+            #edit-icon {
+                position: absolute;
+                top: 20px;
+                left: 625px;
+                width: 30px;
+                height: 30px;
+                background-color: transparent;
+                color: black;
+            }
+
+/*-------------------------------------------------VIOLATION INCIDENT DETAILS--------------------------*/
+
+            .violation-container {
+                position: relative;
+                top: 20px;
+                height: 50vh;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .violation-input-container {
+                position: relative;
+                top: 20px;
+                left: 50%;
+                translate: -50%;
+                border: 1px solid;
+                width: 90%;
+                height: 40vh;
+                border-radius: 10px;
+                padding-top: 50px;
+                /* From https://css.glass */
+                background: rgba(217, 217, 217, 0.81);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 2px solid rgb(3, 3, 3);
+                overflow: auto;
+            }
+
+            #violation-header {
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+
+            #input-violation{
+                padding-left: 5px;
+                margin-top: 10px;
+                width: 200px;
+                height: 40px;
+            }
+
+            #input-violation-place {
+                width: 280px;
+                height: 40px;
+                padding-left: 5px;
+            }
+
+            #input-description-violation {
+                padding-top: 20px;
+                padding-bottom: 130px;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 80%;
+                white-space: normal; 
+                word-wrap: break-word;
+                resize: none;
+            }
+
+/*-------------------------------------------------------IMPOUNDMENT INFORMATION--------------------------*/
+            .impound-container {
+                position: relative;
+                top: 20px;
+                height: 55vh;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }          
+
+            .impound-input-container {
+                position: relative;
+                top: 20px;
+                left: 50%;
+                translate: -50%;
+                border: 1px solid;
+                width: 90%;
+                height: 45vh;
+                border-radius: 10px;
+                padding-top: 50px;
+                /* From https://css.glass */
+                background: rgba(217, 217, 217, 0.81);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 2px solid rgb(3, 3, 3);
+                overflow: auto;
+            }
+
+            #impound-header {
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+
+            #input-impound {
+                padding-left: 5px;
+                margin-top: 50px;
+                width: 200px;
+                height: 40px;
+            }
+
+            #input-condition {
+                padding-top: 20px;
+                padding-bottom: 80px;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 250px;
+                white-space: normal; 
+                word-wrap: break-word;
+                resize: none;
+                float: left;
+                margin-left: 40px;
+                margin-top: 20px;
+            }
+
+            #input-reason {
+                padding-top: 20px;
+                padding-bottom: 80px;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 250px;
+                white-space: normal; 
+                word-wrap: break-word;
+                resize: none; 
+                margin-top: 20px;
+                float: right;
+                margin-right: 40px;
+            }
+/*----------------------------------------end of left section-----------------*/
+
+.right {
+    grid-area: right;
+    height: 100vh;
+}
+
+            .driver-info-container {
+                position: relative;
+                top: 20px;
+                height: 30vh;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .driver-input-container {
+                position: relative;
+                top: 20px;
+                left: 50%;
+                translate: -50%;
+                border: 1px solid;
+                width: 90%;
+                height: 20vh;
+                border-radius: 10px;
+                padding-top: 50px;
+                /* From https://css.glass */
+                background: rgba(217, 217, 217, 0.81);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 2px solid rgb(3, 3, 3);
+                overflow: auto;
+            }
+            
+            #driver-header{
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+
+            #input-driver {
+                padding-left: 5px;
+                margin-top: 10px;
+                width: 200px;
+                height: 40px;
+            }
+
+            #input-driver::-webkit-inner-spin-button {
+                display: none;
+            }
+
+
+/*-------------------------------------------VEHICLE OWNER INFORMATION------------------*/
+            .owner-info-container {
+                position: relative;
+                top: 20px;
+                height: 30vh;
+                width: 99%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .owner-input-container {
+                position: relative;
+                top: 20px;
+                left: 50%;
+                translate: -50%;
+                border: 1px solid;
+                width: 90%;
+                height: 20vh;
+                border-radius: 10px;
+                padding-top: 50px;
+                /* From https://css.glass */
+                background: rgba(217, 217, 217, 0.81);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 2px solid rgb(3, 3, 3);
+                overflow: auto;
+            }
+
+            #owner-header{
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+
+            #input-owner {
+                padding-left: 5px;
+                margin-top: 10px;
+                width: 200px;
+                height: 40px;
+            }
+
+            #input-owner::-webkit-inner-spin-button {
+                display: none;
+            }
+/*-------------------------------------------APPREHENDING OFFICER INFORMATION------------------*/
+
+            .apprehending-officer-container {
+                position: relative;
+                top: 20px;
+                height: 35vh;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .apprehending-input-container {
+                position: relative;
+                top: 20px;
+                left: 50%;
+                translate: -50%;
+                border: 1px solid;
+                width: 90%;
+                height: 25vh;
+                border-radius: 10px;
+                padding-top: 50px;
+                /* From https://css.glass */
+                background: rgba(217, 217, 217, 0.81);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 2px solid rgb(3, 3, 3);
+                overflow: auto;
+            }
+
+            #apprehending-header{
+                margin-top: 25px;
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+            
+            #apprehending-input {
+                padding-left: 30px;
+                margin-top: 25px;
+                width: 60%;
+                height: 40px;
+            }
+
+/*-------------------------------------------RELEASING OFFICER INFORMATION------------------*/
+
+            .releasing-officer-container {
+                position: relative;
+                top: 20px;
+                height: 40vh;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .releasing-input-container {
+                position: relative;
+                top: 20px;
+                left: 50%;
+                translate: -50%;
+                border: 1px solid;
+                width: 90%;
+                height: 30vh;
+                border-radius: 10px;
+                padding-top: 50px;
+                /* From https://css.glass */
+                background: rgba(217, 217, 217, 0.81);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 2px solid rgb(3, 3, 3);
+                overflow: auto;
+            }
+
+            #releasing-header{
+                margin-top: 20px;
+                color: white;
+                text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+            }
+
+            #releasing-input {
+                padding-left: 20px;
+                margin-top: 0px;
+                width: 160px;
+                height: 40px;
+            }
+
+            #releasing-officer {
+                width: 80%;
+                height: 40px;
+                margin-top: 50px;
+                padding-left: 15px;
+            }
+
+/*-------------------------------------------end of right section----------------------------*/
+
+/*------------------------misc style---------*/
+.headerh1 {
+    margin-top: 20px;
+    font-size: 3rem;
+    color: black;
+  }
+
+.btn-container {
+    position: relative;
+    top: 15px;
+    width: max-content;
+    margin-inline: auto;
+}
+
+.nav-btn p {
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.nav-btn {
+    min-width: 15vw;
+    min-height: 5vh;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color:#f4735e;
+    transition: 0.3s ease-in-out;
+    color: white;
+}
+
+.dropdown {
+    position: absolute;
+    top: 50px;
+    width: 15vw;
+    height: 80px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    display: none;
+  }
+  
+.show {
+    display: block;
+    z-index: 1;
+  }
+  
+li {
+    list-style: none;
+  }
+  
+#acc-links {
+    position: relative;
+    top: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    font-size: 15px;
+  }
+
+.main::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    color: white;
+    text-shadow: #597BA7;
+}
+
+.menu-overlay {
+    position: absolute;
+    top: 115px;
+    height: 160px;
+    width: 100%;
+    z-index: 1;
+    background-color: #6b7077;
+    display: none;
+}
+  
+#mobile-li {
+    list-style: none;
+    text-align: center;
+    margin: 10px;
+  }
+  
+#mobile-links {
+    text-decoration: none;
+    margin-top: 10px;
+    color: white;
+  }
+  
+.menu-button {
+    position: absolute;
+    filter: invert(-1);
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: none;
+}
+  
+.showMenubtn {
+    display: block;
+    z-index: 1;
+}
+

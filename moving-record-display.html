@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="moving-record-display.css">
+    <script src="index.js"></script>
+</head>
+<body>
+
+        <div class="container">
+            <div class="header">
+                <center><h1 class="headerh1">VEHICLE IMPOUNDMENT AND MANAGEMENT SYSTEM</h1></center>
+            </div>
+            <div class="navbar">
+                <div class="btn-container">
+                    <button class="menu-button" id="menu" onclick="barMenu()">
+                        <i class="fa fa-bars" style="font-size:36px"></i>
+                    </button> 
+
+                    <a href="index.html">
+                        <button class="nav-btn" id="home">
+                            <p>Home</p>
+                        </button>
+                        </a>
+        
+                        <a href="data-records.html">
+                        <button class="nav-btn" id="data-record">
+                            <p>Data Records</p>
+                        </button>
+                        </a>
+        
+                        <a href="record-status.html">
+                        <button class="nav-btn" id="record-status">
+                            <p>Record Status</p>
+                        </button>
+                        </a>
+                    <button class="nav-btn" id="city-ordinance">
+                        <p>City Ordinance</p>
+                    </button>
+                    <button class="nav-btn" id="toggleButton" onclick="menuToggled()">
+                        <p>Account</p>       
+                        <div class="dropdown" id="display">
+                                <li><a href="" id="acc-links">
+                                    Edit Account
+                                </a></li><br>
+                                <li><a href="" id="acc-links">
+                                    Logout
+                                </a></li>
+                        </div>
+                    </button>
+                    <button class="nav-btn" id="about">
+                        <p>About</p>
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar"></div>
+
+
+
+<!----------------------------FORM STARTS HERE------------------------>
+<!---MAIN--->
+    <div class="main">
+
+        <div class="inside-main">       
+<!------------------------------------------------ HEADER (TITLE) ----------------------------------------------------->
+                    <div class="title-bar">
+                        <div class="header-search-bar">
+                            <h1 id="title-header-search-bar">VEHICLE MOVING VIOLATIONS RECORDS</h1>
+                            <div class="search-form">
+                                <p id="ticket-placeholder">TICKET NO:</p><input type="number" name="ticketNumber" value="123456789" id="ticket-search-bar" required>
+                            </div>
+                        </div>
+                    </div>
+<!------------------------------------------------ VEHICLE INFORMATION SECTION ----------------------------------------------------->
+                    <div class="left">
+                        <div class="vehicle-info-container">
+                            <div class="input-container">
+                                <h1 id="vehicle-info-header">VEHICLE INFORMATION</h1>
+                                <input type="text" name="vehicleType" id="input-vehicle-info" value="SEDAN" placeholder="TYPE OF VEHICLE" required>
+                                <input type="text" name="vehicleModel" id="input-vehicle-info" value="HYUNDAI VERNA" placeholder="VEHICLE MODEL" required>
+                                <input type="text" name="yearModel" id="input-vehicle-info" value="2007" placeholder="YEAR OF MODEL" required><br><br>
+                                <input type="text" name="plateNumber" id="plate-number" value="AHDJ-JW6289" placeholder="VEHICLE LICENSE PLATE NO" maxlength="7" required>
+                                <input type="text" name="chassisNumber" id="input-vehicle-info" value="6372OJ934U" placeholder="VEHICLE CHASSIS NO" required>
+                                <input type="text" name="vehicleColor" id="input-vehicle-info" value="GRAY" placeholder="VEHICLE COLOR" required>
+                            </div>
+                        </div>
+<!------------------------------------------------ VIOLATION/INCIDENT DETAILS ----------------------------------------------------->
+                    
+                    <div class="violation-container">
+                        <div class="violation-input-container">
+                            <h1 id="violation-header">VIOLATION/INCIDENT DETAILS</h1>
+                            <input type="text" name="" id="input-violation" value="ILLEGAL PARKING" placeholder="VIOLATION COMMITED" required>
+                            <input placeholder="TIME" class="textbox-n" type="text" value="3:14 PM" onfocus="(this.type='time')" onblur="(this.type='text')" id="input-violation" />
+                            <input placeholder="DATE" class="textbox-n" type="text" value="10/08/2024" onfocus="(this.type='date')" onblur="(this.type='text')" id="input-violation" /><br><br>
+                            <input type="text" name="" id="input-violation-place" value="LACSON HIGHWAY" placeholder="PLACE OF VIOLATION"><br><br>
+                            <textarea name="" id="input-description-violation" placeholder="DESCRIPTION OF INCIDENT(IF APPLICABLE)" autocomplete="off" >ILLEGAL PARKING</textarea>
+                        </div>
+                    </div>
+<!------------------------------------------------ IMPOUND INFORMATION SECTION ----------------------------------------------------->
+                    <div class="impound-container">
+                        <div class="impound-input-container">
+                            <h1 id="impound-header">IMPOUNDMENT INFORMATION</h1>
+                            <input placeholder="DATE" class="textbox-n" type="text" value="10/09/2024" onfocus="(this.type='date')" onblur="(this.type='text')" id="input-impound" />
+                            <input placeholder="TIME" class="textbox-n" type="text" value="3:50" onfocus="(this.type='time')" onblur="(this.type='text')" id="input-impound" />
+                            <input type="text" name="" id="input-impound" value="ALIJIS OFFICE BTAO" placeholder="LOCATION OF THE IMPOUND LOT"><br><br>
+                            <textarea name="" id="input-condition" placeholder="CONDITION OF THE VEHICLE UPON IMPOUNDMENT" autocomplete="off" >GOOD CONDITION, NO DAMAGE</textarea>
+                            <textarea name="" id="input-reason" placeholder="IMPOUND REASON" autocomplete="off" >DRIVING WITHOUT LICENSE WITH BACK RIDER, NO HELMET</textarea>
+                        </div>
+                    </div>
+
+                    </div>
+<!--------------------------------------------------End tag of (LEFT) DIV----------------------------------------------------------->
+
+                        <!-----------------DRIVER INFORMATION-->                    
+                        <div class="right">
+                        
+                        <div class="driver-info-container">
+                            <div class="driver-input-container">
+                                <h1 id="driver-header">DRIVER INFORMATION</h1>
+                                <input type="text" name="lastName" id="input-driver" value="TRESMONTE" placeholder="Last Name">
+                                <input type="text" name="firstName" id="input-driver" value="PRINCES ANN" placeholder="First Name">
+                                <input type="text" name="middleInitial" id="input-driver" value="R." placeholder="M.I"><br><br>
+                               <input type="text" name="" id="input-driver" value="26839O28-28728"  placeholder="DRIVER'S LICENSE NO.">
+                                <input type="text" name="" id="input-driver" value="OWNER" placeholder="RELATIONSHIP TO THE VEHICLE">
+                            </div>
+                        </div>
+
+                        <!---------------------VEHICLE OWNER INFORMATION------>
+                        <div class="owner-info-container">
+                            <div class="owner-input-container">
+                                <h1 id="owner-header">VEHICLE OWNER INFORMATION</h1>
+                                <input type="text" name="lastName" id="input-owner"  value="TRESMONTE" placeholder="Last Name">
+                                <input type="text" name="firstName" id="input-owner" value="PRINCES ANN"  placeholder="First Name">
+                                <input type="text" name="middleInitial" id="input-owner" value="R." placeholder="M.I"><br><br>
+                               <input type="text" name="" id="input-owner" value="26839O28-28728" placeholder="DRIVER'S LICENSE NO.">
+                                <input type="text" name="" id="input-owner" value="OWNER" placeholder="RELATIONSHIP TO THE VEHICLE">
+                            </div>
+                        </div>
+                        <!---------------------APPREHENDING OFFICER INFORMATION------>
+                        <div class="apprehending-officer-container">
+                            <div class="apprehending-input-container">
+                                <h1 id="apprehending-header">
+                                    APPREHENDING OFFICER INFORMATION
+                                </h1>
+                                <input type="text" name="" value="KEN AZUCENA" id="apprehending-input" placeholder="APPREHENDING OFFICER NAME">
+                                <input type="text" name="" value="BTAO" id="apprehending-input" placeholder="DEPARTMENT/AGENCY">
+                            </div>
+                        </div>
+                          <!---------------------RELEASING OFFICER INFORMATION------>
+                        <div class="releasing-officer-container">
+                            <div class="releasing-input-container">
+                                <h1 id="releasing-header">RELEASING OFFICER INFORMATION</h1>
+                                <input type="text" name="" id="releasing-officer" value="DIONIES NICOLE BONILLA, BTAO OFFICER 3" placeholder="NAME OF RELEASING OFFICER"><br><br>
+                                <input placeholder="TIME OF RELEASE" class="textbox-n" value="4:30 PM" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="releasing-input" />
+                                <input placeholder="DATE OF RELEASE" class="textbox-n" value="10/08/2024" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="releasing-input" />
+                                <input type="text" name="" id="releasing-input" value="PAID & RELEASE" placeholder="REMARKS">
+                            </div>
+                        </div>
+
+
+                    </div>
+<!--------------------------------------------------End tag of (RIGHT) DIV----------------------------------------------------------->
+        </div><!--inside main closing-->
+    </div><!--main closing tag-->
+
+        <div class="footer">
+
+        </div>
+</div><!--container closing tag-->
+
+</body>
+</html>

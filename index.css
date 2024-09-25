@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('impp.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100%;
+    min-width: 100vw;
+}
+
+
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 10vw 1fr 10vw;
+    grid-template-areas: 
+       "header header header"
+       "navbar navbar navbar"
+      "sidebar main rightside"
+      "footer footer footer";
+    gap: 5px;
+}
+  
+.navbar {
+    grid-area: navbar;
+    background-color: #6b7077;
+    position: relative;
+    height: 80px;
+  }
+  
+.sidebar {
+    grid-area: sidebar;
+    height: calc(80vh - 8.34vh);
+  }
+
+.header {
+  grid-area: header;
+  height: 9vh;
+  background-color: #597BA7;
+}
+
+.main {
+    grid-area: main;
+    height: calc(80vh - 8.34vh);
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.4px);
+    -webkit-backdrop-filter: blur(12.4px);
+    border: 1px solid rgba(0, 0, 0, 0.57);
+}
+  
+.rightside {
+    grid-area: rightside;
+    height: calc(80vh - 8.34vh);
+  }
+  
+.footer {
+    display: grid;
+    position: relative;
+    grid-area: footer;
+    background-color: #597BA7;
+    height: 9vh;
+}
+
+/*------------------------------------misc--------------------------------------------*/
+.headerh1 {
+  margin-top: 20px;
+  font-size: 3rem;
+}
+
+#headermain {
+  margin-top: 20px;
+  font-size: 2vw;
+}
+
+.btn-container {
+    position: relative;
+    top: 15px;
+    width: max-content;
+    margin-inline: auto;
+}
+
+.nav-btn p {
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.nav-btn {
+    min-width: 15vw;
+    min-height: 5vh;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color:#f4735e;
+    transition: 0.3s ease-in-out;
+    color: white;
+}
+
+.main::-webkit-scrollbar {
+   display: none;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  width: 15vw;
+  height: 80px;
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  display: none;
+}
+
+.show {
+  display: block;
+  z-index: 1;
+}
+
+li {
+  list-style: none;
+}
+
+#acc-links {
+  position: relative;
+  top: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  font-size: 15px;
+}
+
+/*----------------------------------------*/
+
+.home-button {
+  position: absolute;
+  filter: invert(-1);
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: none;
+}
+
+
+/*--------mobile view menu dropdowns--------*/
+.menu-overlay {
+  position: absolute;
+  top: 115px;
+  height: 130px;
+  width: 100%;
+  z-index: 1;
+  background-color: #6b7077;
+  display: none;
+}
+
+#mobile-li {
+  list-style: none;
+  text-align: center;
+  margin: 10px;
+}
+
+#mobile-links {
+  text-decoration: none;
+  margin-top: 20px;
+  color: white;
+}
+
+.menu-button {
+  position: absolute;
+  filter: invert(-1);
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: none;
+}
+
+.showMenubtn {
+  display: block;
+  z-index: 1;
+  animation: slideDown 0.5s ease-in-out;
+}
+
+/*----------mobile view account dropdowns-------*/
+
+.user-button {
+  position: absolute;
+  filter: invert(-1);
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: none;
+}
+
+.user-overlay {
+  position: absolute;
+  top: 115px;
+  height: 70px;
+  width: 100%;
+  z-index: 1;
+  background-color: #6b7077;
+  display: none;
+}
+
+#mobile-li {
+  list-style: none;
+  text-align: center;
+  margin: 10px;
+}
+
+#mobile-links {
+  text-decoration: none;
+  margin-top: 20px;
+  color: white;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-2px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.showAccbtn {
+  display: block;
+  z-index: 1;
+  animation: slideDown 0.5s ease-in-out;
+}

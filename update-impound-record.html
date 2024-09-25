@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="update-impound-record.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="index.js"></script>
+</head>
+<body>
+
+        <div class="container">
+            <div class="header">
+                <center><h1 class="headerh1">VEHICLE IMPOUNDMENT AND MANAGEMENT SYSTEM</h1></center>
+            </div>
+            <div class="navbar">
+                <div class="btn-container">
+                    <button class="menu-button" id="menu" onclick="barMenu()">
+                        <i class="fa fa-bars" style="font-size:36px"></i>
+                    </button> 
+
+                    <a href="index.html">
+                        <button class="nav-btn" id="home">
+                            <p>Home</p>
+                        </button>
+                        </a>
+        
+                        <a href="data-records.html">
+                        <button class="nav-btn" id="data-record">
+                            <p>Data Records</p>
+                        </button>
+                        </a>
+        
+                        <a href="record-status.html">
+                        <button class="nav-btn" id="record-status">
+                            <p>Record Status</p>
+                        </button>
+                        </a>
+                    <button class="nav-btn" id="city-ordinance">
+                        <p>City Ordinance</p>
+                    </button>
+                    <button class="nav-btn" id="toggleButton" onclick="menuToggled()">
+                        <p>Account</p>       
+                        <div class="dropdown" id="display">
+                                <li><a href="" id="acc-links">
+                                    Edit Account
+                                </a></li><br>
+                                <li><a href="" id="acc-links">
+                                    Logout
+                                </a></li>
+                        </div>
+                    </button>
+                    <button class="nav-btn" id="about">
+                        <p>About</p>
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar"></div>
+
+
+
+<!----------------------------FORM STARTS HERE------------------------>
+<!---MAIN--->
+    <div class="main">
+
+        <div class="inside-main"><!-----------SEARCH BAR-->
+            <h1 id="view-header">UPDATE IMPOUND RECORDS</h1>
+            <form action="" method="">
+                <input type="number" name="ticketNumber" id="search-bar" autocomplete="off" placeholder="TICKET NO."><br><br>
+                <a href="update-impound-display.html"><button type="button" id="search-btn">Search</button></a>
+            </form>
+            <h3 id="search-header">to view record, input ticket number above...</h3>
+        </div><!--inside main closing-->
+    </div><!--main closing tag-->
+
+        <div class="footer"
+
+        </div>
+</div><!--container closing tag-->
+
+</script>
+</body>
+</html>

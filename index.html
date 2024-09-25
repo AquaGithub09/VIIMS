@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index-phone-query.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+
+        
+        <div class="header">
+            <center><h1 class="headerh1">VEHICLE IMPOUNDMENT AND MANAGEMENT SYSTEM</h1></center>
+        </div>
+
+        <div class="menu-overlay" id="mobiledisplay">
+            <li id="mobile-li"><a href="data-records.html" id="mobile-links">DATA RECORDS</a></li>
+            <li id="mobile-li"><a href="record-status.html" id="mobile-links">RECORD STATUS</a></li>
+            <li id="mobile-li"><a href="" id="mobile-links">CITY ORDINANCE</a></li>
+            <li id="mobile-li"><a href="" id="mobile-links">ABOUT</a></li>
+        </div>
+
+        <div class="user-overlay" id="mobileDisplayAccount">
+            <li id="mobile-li"><a href="" id="mobile-links">EDIT ACCOUNT</a></li>
+            <li id="mobile-li"><a href="" id="mobile-links">LOGOUT</a></li>
+        </div>
+
+        <div class="navbar">
+            <div class="btn-container">
+                
+                <button class="menu-button" id="menu" onclick="barMenu()">
+                    <i class="fa fa-bars" style="font-size:30px"></i>
+                </button> 
+
+                <a href="index.html"><button class="home-button" id="home">
+                    <i class="fa fa-home" style="font-size:30px"></i>
+                </button></a>
+
+                <button class="user-button" id="user" onclick="barUser()">
+                    <i class="fa fa-user" style="font-size: 30px;" aria-hidden="true"></i>
+                </button>
+
+                    <a href="index.html">
+                    <button class="nav-btn" id="home">
+                        <p>Home</p>
+                    </button>
+                    </a>
+    
+                    <a href="data-records.html">
+                    <button class="nav-btn" id="data-record">
+                        <p>Data Records</p>
+                    </button>
+                    </a>
+    
+                    <a href="record-status.html">
+                    <button class="nav-btn" id="record-status">
+                        <p>Record Status</p>
+                    </button>
+                    </a>
+
+                <button class="nav-btn" id="city-ordinance">
+                    <p>City Ordinance</p>
+                </button>
+
+                <button class="nav-btn" id="toggleButton" onclick="menuToggled()">
+                    <p>Account</p>   
+                        
+                    <div class="dropdown" id="display">
+                            <li><a href="" id="acc-links">
+                                Edit Account
+                            </a></li><br>
+                            <li><a href="" id="acc-links">
+                                Logout
+                            </a></li>
+                    </div>
+
+                </button>
+                <button class="nav-btn" id="about">
+                    <p>About</p>
+                </button>
+
+            </div>
+        </div>
+        
+        <div class="sidebar">
+
+        </div>
+
+        <div class="main">
+           <center>
+            <h1 id="headermain">
+                ANNOUNCEMENT
+            </h1><br><br>
+        </center>
+        </div>
+
+        <div class="rightside">
+            
+        </div>
+
+        <div class="footer">
+            
+        </div>
+
+    </div>
+    
+<script>
+
+const menuButton = document.getElementById('mobiledisplay');
+const accountButton = document.getElementById('mobileDisplayAccount');
+
+function closeOtherDropdowns(excludeElement) {
+    if (excludeElement !== menuButton) menuButton.classList.remove('showMenubtn');
+    if (excludeElement !== accountButton) accountButton.classList.remove('showAccbtn');
+}
+
+function barMenu() {
+    const isOpen = menuButton.classList.contains('showMenubtn');
+    closeOtherDropdowns(menuButton);
+    menuButton.classList.toggle('showMenubtn', !isOpen);
+}
+
+function barUser() {
+    const isOpen = accountButton.classList.contains('showAccbtn');
+    closeOtherDropdowns(accountButton);
+    accountButton.classList.toggle('showAccbtn', !isOpen);
+}
+
+menuButton.addEventListener('click', barMenu);
+accountButton.addEventListener('click', barUser);
+
+</script>
+
+</body>
+</html>
