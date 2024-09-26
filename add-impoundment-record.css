@@ -128,11 +128,6 @@ body {
                 display: none;
             }
 
-.left {
-    grid-area: left;
-    height: auto;
-}
-
 /*-----------------------------------------------------------VEHICLE INFORMATION--------------------------*/
 
             .vehicle-info-container {
@@ -281,7 +276,6 @@ body {
     top: -40px;
     width: 100%;
     height: auto;
-    border: 1px solid;
     max-height: 15vh;
     overflow: auto;
 }
