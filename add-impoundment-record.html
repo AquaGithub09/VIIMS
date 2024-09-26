@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="add-impoundment-record.css">
     <script src="index.js"></script>
 </head>
@@ -67,7 +68,7 @@
 <!------------------------------------------------ HEADER (TITLE) ----------------------------------------------------->
                     <div class="title-bar">
                         <div class="header-search-bar">
-                            <h1 id="title-header-search-bar">VEHICLE IMPOUNDMENT DATA RECORDS</h1>
+                            <h1 id="title-header-search-bar">VEHICLE MOVING VIOLATION RECORDS</h1>
                             <div class="search-form">
                                 <p id="ticket-placeholder">TICKET NO:</p><input type="number" name="ticketNumber" value="123456789" id="ticket-search-bar" required>
                             </div>
@@ -78,12 +79,36 @@
                         <div class="vehicle-info-container">
                             <div class="input-container">
                                 <h1 id="vehicle-info-header">VEHICLE INFORMATION</h1>
-                                <input type="text" name="vehicleType" id="input-vehicle-info" placeholder="TYPE OF VEHICLE" required>
-                                <input type="text" name="vehicleModel" id="input-vehicle-info" placeholder="VEHICLE MODEL" required>
-                                <input type="text" name="yearModel" id="input-vehicle-info" placeholder="YEAR OF MODEL" required><br><br>
-                                <input type="text" name="plateNumber" id="plate-number" placeholder="VEHICLE LICENSE PLATE NO" maxlength="7" required>
-                                <input type="number" name="chassisNumber" id="input-vehicle-info" placeholder="VEHICLE CHASSIS NO" required>
-                                <input type="text" name="vehicleColor" id="input-vehicle-info" placeholder="VEHICLE COLOR" required>
+
+                                <div class="first">
+                                    <input type="text" name="vehicleType" id="input-vehicle-info" autocomplete="off" required>
+                                    <label for="vehicleType" class="vehicle-label">VEHICLE TYPE</label>
+                                </div>
+
+                                <div class="second">
+                                    <input type="text" name="vehicleModel" id="input-vehicle-info" autocomplete="off"  required>
+                                    <label for="vehicleModel" class="vehicle-label">VEHICLE MODEL</label>
+                                </div>
+
+                                <div class="third">
+                                    <input type="text" name="yearModel" id="input-vehicle-info" autocomplete="off" required>
+                                    <label for="yearModel" class="vehicle-label">YEAR MODEL</label>
+                                </div>
+
+                                <div class="fourth">
+                                    <input type="text" name="plateNumber" id="input-vehicle-info" autocomplete="off"  required>
+                                    <label for="plateNumber" class="vehicle-label">PLATE NO.</label>
+                                </div>
+
+                                <div class="fifth">
+                                    <input type="text" name="chassisNumber" id="input-vehicle-info" autocomplete="off"  required>
+                                    <label for="chassisNumber" class="vehicle-label">CHASSIS NO.</label>
+                                </div>
+
+                                <div class="sixth">
+                                    <input type="text" name="vehicleColor" id="input-vehicle-info" autocomplete="off" required>
+                                    <label for="vehicleColor" class="vehicle-label">VEHICLE COLOR</label>
+                                </div>
                             </div>
                         </div>
 <!------------------------------------------------ VIOLATION/INCIDENT DETAILS ----------------------------------------------------->
@@ -91,11 +116,41 @@
                     <div class="violation-container">
                         <div class="violation-input-container">
                             <h1 id="violation-header">VIOLATION/INCIDENT DETAILS</h1>
-                            <input type="text" name="" id="input-violation" placeholder="VIOLATION COMMITED" required>
-                            <input placeholder="TIME" class="textbox-n" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="input-violation" />
-                            <input placeholder="DATE" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="input-violation" /><br><br>
-                            <input type="text" name="" id="input-violation-place" placeholder="PLACE OF VIOLATION"><br><br>
-                            <textarea name="" id="input-description-violation" placeholder="DESCRIPTION OF INCIDENT(IF APPLICABLE)" autocomplete="off" ></textarea>
+                            <button id="addButton"><i class="fa fa-plus" style="font-size:10px;"> ADD</i> </button>
+
+                            <div class="violation">
+
+                                    <input type="text" name="violation-commited" id="input-violation" required> 
+                                    <label for="violation-commited" class="violation-label">VIOLATION COMMITTED</label>
+                                                                                
+                                    <input type="number" name="fee-price" id="input-fee" required> 
+                                    <label for="fee-price" class="feelabel">VIOLATION FEE</label>
+
+                                    <div class="new-input-container" id="input-container">
+                                        <!--------------NEW INPUT ADDED HERE DON'T REMOVE THIS PLEASEEEE-->
+                                    </div>
+                            </div>  
+
+                            <div class="place">
+                                <input type="text" name="" id="input-violation-place" placeholder="PLACE OF VIOLATION">
+                                
+                            </div>
+
+                            <div class="time">
+
+                            </div>
+
+                            <div class="date">
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+
+                            <div class="margin-center">
+
+                            </div>
                         </div>
                     </div>
 <!------------------------------------------------ IMPOUND INFORMATION SECTION ----------------------------------------------------->
@@ -124,8 +179,8 @@
                                 <input type="text" name="" id="input-driver" placeholder="RELATIONSHIP TO THE VEHICLE">
                             </div>
                         </div>
-                        <!--------------------------->
 
+                        <!--------------------------->
                         <div class="owner-info-container">
                             <div class="owner-input-container">
                                 <h1 id="owner-header">VEHICLE OWNER INFORMATION</h1>
@@ -136,8 +191,6 @@
                                 <input type="text" name="" id="input-owner" placeholder="RELATIONSHIP TO THE VEHICLE">
                             </div>
                         </div>
-
-
                         <!--------------------------->
                         <div class="apprehending-officer-container">
                             <div class="apprehending-input-container">
@@ -169,30 +222,65 @@
 
         </div>
 </div><!--container closing tag-->
+
 <script>
+const addButton = document.getElementById('addButton');
+const inputContainer = document.getElementById('input-container');
 
-    /*------------------------PLATE NUMBER FORMAT-------------------*/
-    document.getElementById('plate-number').addEventListener('input', function(e) {
-    let input = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); // Remove non-alphanumeric characters and convert to uppercase
-    let formattedInput = '';
+addButton.addEventListener('click', function() {
+    const currentInputs = inputContainer.getElementsByClassName('one').length;
 
-    if (input.length <= 3) {
-        formattedInput = input; // First 3 characters are letters
-    } else {
-        formattedInput = input.substring(0, 3) + '-' + input.substring(3, 6); // Insert hyphen after 3 letters and add numbers
+    if (currentInputs >= 10) {
+        alert('!!!!');
+        return;
     }
 
-    e.target.value = formattedInput;
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('one');
+    newDiv.style.position = 'relative';
+
+    const newViolationInput = document.createElement('input');
+    newViolationInput.type = 'text';
+    newViolationInput.placeholder = 'VIOLATION COMMITTED';
+    newViolationInput.required = true;
+    newViolationInput.style.width = '60%';
+    newViolationInput.style.height = '40px';
+    newViolationInput.style.paddingLeft = '10px';
+    newViolationInput.style.marginTop = '10px';
+
+    const newFeeInput = document.createElement('input');
+    newFeeInput.type = 'number';
+    newFeeInput.placeholder = ' VIOLATION FEE';
+    newFeeInput.style.width = '20%';
+    newFeeInput.style.height = '40px';
+    newFeeInput.style.paddingLeft = '10px';
+    newFeeInput.style.marginLeft = '5px';
+
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    closeButton.style.position = 'absolute';
+    closeButton.style.right = '20px';
+    closeButton.style.top = '20px';
+    closeButton.style.background = 'red';
+    closeButton.style.color = 'white';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '50%';
+    closeButton.style.width = '25px';
+    closeButton.style.height = '25px';
+    closeButton.style.cursor = 'pointer';
+
+    closeButton.addEventListener('click', function() {
+        inputContainer.removeChild(newDiv);
+    });
+
+    newDiv.appendChild(newViolationInput);
+    newDiv.appendChild(newFeeInput);
+    newDiv.appendChild(closeButton);
+    inputContainer.appendChild(newDiv);
 });
 
-// Optional: prevent input after 7 characters (3 letters + hyphen + 3 numbers)
-document.getElementById('plate-number').addEventListener('keydown', function(e) {
-    if (e.target.value.length >= 7 && e.key !== 'Backspace' && e.key !== 'Delete') {
-        e.preventDefault();
-    }
-});
 
-/*-----------------------------------------------------------------*/
 </script>
+
 </body>
 </html>
