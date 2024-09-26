@@ -138,7 +138,7 @@ body {
             .vehicle-info-container {
                 position: relative;
                 top: -100px;
-                height: 30vh;
+                height: 35vh;
                 width: 100%;
                 justify-content: center;
                 align-items: center;
@@ -151,11 +151,10 @@ body {
                 left: 50%;
                 translate: -50%;
                 border: 1px solid;
-                width: 90%;
-                height: 20vh;
+                width: 85%;
+                height: 25vh;
                 border-radius: 10px;
-                padding-top: 50px;
-                /* From https://css.glass */
+                padding: 20px;
                 background: rgba(217, 217, 217, 0.81);
                 border-radius: 16px;
                 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -163,24 +162,26 @@ body {
                 -webkit-backdrop-filter: blur(20px);
                 border: 2px solid rgb(3, 3, 3);
                 overflow: auto;
+
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas: 
+                "header header header"
+                "firstrow secondrow thirdrow"
+                "fourth fifth sixth";
             }
 
 
             #vehicle-info-header {
+                grid-area: header;
                 color: white;
                 text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+                margin-bottom: 30px;
+                margin-top: 20px;
             }
 
             #input-vehicle-info {
                 padding-left: 5px;
-                margin-top: 10px;
-                width: 200px;
-                height: 40px;
-            }
-
-            #plate-number {
-                padding-left: 5px;
-                margin-top: 10px;
                 width: 200px;
                 height: 40px;
             }
@@ -189,23 +190,57 @@ body {
                 display: none;
             }
 
-/*------------------------------------------------------ EDIT ICONS ------------------------*/
-            #edit-icon {
-                position: absolute;
-                top: 20px;
-                left: 625px;
-                width: 30px;
-                height: 30px;
-                background-color: transparent;
+            #input-vehicle-info:focus + .vehicle-label,
+            #input-vehicle-info:valid + .vehicle-label {
+                top: -65px;
                 color: black;
+                transition: .3s ease-in-out;
             }
+
+            #input-vehicle-info:not(:focus) + .vehicle-label {
+                transition: .3s ease-in-out;
+            }
+
+            .vehicle-label {
+                position: relative;
+                top:-30px;
+                left: -40px;
+                font-size: 0.8em;
+                color: #6b7077;
+                cursor: text;
+            }
+
+            .first {
+                grid-area: firstrow;
+            }
+
+            .second {
+                grid-area: secondrow;
+            }
+
+            .third {
+                grid-area: thirdrow;
+            }
+
+            .fourth {
+                grid-area: fourth;
+            }
+
+            .fifth {
+                grid-area: fifth;
+            }
+
+            .sixth {
+                grid-area: sixth;
+            }
+
 
 /*-------------------------------------------------VIOLATION INCIDENT DETAILS--------------------------*/
 
             .violation-container {
                 position: relative;
                 top: -100px;
-                height: 50vh;
+                height: 60vh;
                 width: 100%;
                 justify-content: center;
                 align-items: center;
@@ -219,10 +254,9 @@ body {
                 translate: -50%;
                 border: 1px solid;
                 width: 90%;
-                height: 40vh;
+                height: 50vh;
                 border-radius: 10px;
                 padding-top: 50px;
-                /* From https://css.glass */
                 background: rgba(217, 217, 217, 0.81);
                 border-radius: 16px;
                 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -230,17 +264,156 @@ body {
                 -webkit-backdrop-filter: blur(20px);
                 border: 2px solid rgb(3, 3, 3);
                 overflow: auto;
+
+                display: grid;
+                grid-template-columns: 1fr 1fr 10px 1fr 1fr;
+                grid-template-areas: 
+                "header header header header header"
+                "violation violation violation violation violation"
+                "time time center date date" 
+                "place place place place place"
+                "desc  desc desc desc desc";
             }
 
+.violation {
+    grid-area: violation;
+    position: fixed;
+    top: -40px;
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+    max-height: 15vh;
+    overflow: auto;
+}
+
+                    .violation::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    .violation-label {
+                        position: fixed;
+                        left: 80px;
+                        top: 160px;
+                        font-size: 0.8em;
+                        color: #6b7077;
+                    }
+
+                    #input-violation:focus + .violation-label,
+                    #input-violation:valid + .violation-label {
+                        top: 115px;
+                        color: black;
+                        transition: 0.3s ease-in-out;
+                    }
+
+                    .feelabel {
+                        position: fixed;
+                        right: 105px;
+                        top: 150px;
+                        font-size: .8em;
+                        color: #6b7077;
+                    }
+
+                    #input-fee::-webkit-inner-spin-button {
+                        display: none;
+                    }
+
+                    #input-fee:focus + .feelabel {
+                        top: 115px;
+                        color: black;
+                        transition: 0.3s ease-in-out;
+                    }
+
+                    #input-fee:valid + .feelabel {
+                        top: -10px;
+                        color: black;
+                        transition: 0.3s ease-in-out;
+                    }
+
+                    #input-fee {
+                        width: 20%;
+                        height: 40px;
+                        padding-left: 10px;
+                        cursor: text;
+                    }
+
+                    .inside-violation-two {
+                        grid-area: violation;
+                    }
+
+                    #addButton {
+                        position: absolute;
+                        top: 140px;
+                        right: 5px;
+                        width: 40px;
+                        height: 30px;
+                        z-index: 1;
+                    }
+
+.place {
+    grid-area: place;
+    text-align: center; 
+}
+
+                    #input-place {
+                        position: relative;
+                        top: -40px;
+                        height: 30px;
+                    }
+
+.time {
+    grid-area: time;
+    text-align: right;
+}
+                #input-time {
+                    padding-left: 10px;
+                    margin-top: 10px;
+                    width: 70%;
+                    height: 40px;
+                }
+.date {
+    grid-area: date;
+    text-align: left;
+}   
+                #input-date {
+                    padding-left: 10px;
+                    margin-top: 10px;
+                    width: 70%;
+                    height: 40px; 
+                }
+
+.description {
+    grid-area: desc;
+}
+
+                #input-description-violation {
+                    padding-top: 20px;
+                    padding-bottom: 80px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 80%;
+                     margin-top: 20px;
+                    white-space: normal; 
+                    word-wrap: break-word;
+                    resize: none;
+                }
+
+            .margin-center {
+                grid-area: center;
+            }
+
+
             #violation-header {
+                grid-area: header;
                 color: white;
                 text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
             }
+            
 
             #input-violation{
-                padding-left: 5px;
+                grid-area: violation;
+                padding-left: 10px;
                 margin-top: 10px;
-                width: 200px;
+                width: 60%;
                 height: 40px;
             }
 
@@ -250,15 +423,11 @@ body {
                 padding-left: 5px;
             }
 
-            #input-description-violation {
-                padding-top: 20px;
-                padding-bottom: 130px;
-                padding-left: 20px;
-                padding-right: 20px;
-                width: 80%;
-                white-space: normal; 
-                word-wrap: break-word;
-                resize: none;
+            .new-input-style {
+                padding-left: 10px;
+                margin-top: 10px;
+                width: 60%;
+                height: 40px;
             }
 
 /*-------------------------------------------------------IMPOUNDMENT INFORMATION--------------------------*/
@@ -656,6 +825,3 @@ h1 {
     z-index: 1;
 }
 
-#menu {
-    display: none;
-}
